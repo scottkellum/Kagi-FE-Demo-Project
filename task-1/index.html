@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kagi Exercise 1</title>
+  <style>
+    html {
+      --brand-color: #ffc85a;
+
+      font-family: system-ui;
+      font-size: calc(20 / 16 * 100%);
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      gap: 1rem;
+    }
+    li {
+      display: flex;
+      gap: 0.5rem;
+    }
+    li:has(:checked) {
+      text-decoration: line-through;
+      order: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Add light, dark, auto, and fun theme toggle -->
+  <!-- Add toggle to show, move, or hide completed items -->
+  
+  <ul>
+    <!-- Add option to hide checked, make the more/less toggle respond -->
+    <li><input type="checkbox" name="pound-sweet-italian-sausage" id="pound-sweet-italian-sausage"><label for="pound-sweet-italian-sausage">1 pound sweet Italian sausage</label></li>
+    <li><input type="checkbox" name="pound-lean-ground-beef" id="pound-lean-ground-beef"><label for="pound-lean-ground-beef">3/4 pound lean ground beef</label></li>
+    <li><input type="checkbox" name="minced-onion" id="minced-onion"><label for="minced-onion">1/2 cup minced onion</label></li>
+    <li><input type="checkbox" name="crushed-garlic" id="crushed-garlic"><label for="crushed-garlic">2 cloves garlic, crushed</label></li>
+    <li><input type="checkbox" name="crushed-tomatoes" id="crushed-tomatoes"><label for="crushed-tomatoes">1 (28 ounce) can crushed tomatoes</label></li>
+    <li><input type="checkbox" name="tomato-paste" id="tomato-paste"><label for="tomato-paste">2 (6 ounce) cans tomato paste</label></li>
+    <li><input type="checkbox" name="canned-tomato-sauce" id="canned-tomato-sauce"><label for="canned-tomato-sauce">2 (6.5 ounce) cans canned tomato sauce</label></li>
+    <li><input type="checkbox" name="water" id="water"><label for="water">1/2 cup water</label></li>
+    <li><input type="checkbox" name="white-sugar" id="white-sugar"><label for="white-sugar">2 tablespoons white sugar</label></li>
+    <li><input type="checkbox" name="dried-basil-leaves" id="dried-basil-leaves"><label for="dried-basil-leaves">1 1/2 teaspoons dried basil leaves</label></li>
+    <li><input type="checkbox" name="fennel-seeds" id="fennel-seeds"><label for="fennel-seeds">1/2 teaspoon fennel seeds</label></li>
+    <li><input type="checkbox" name="italian-seasoning" id="italian-seasoning"><label for="italian-seasoning">1 teaspoon Italian seasoning</label></li>
+    <li><input type="checkbox" name="salt" id="salt"><label for="salt">11/2 teaspoons salt, divided, or to taste</label></li>
+    <li><input type="checkbox" name="ground-black-pepper" id="ground-black-pepper"><label for="ground-black-pepper">1/4 teaspoon ground black pepper</label></li>
+    <li><input type="checkbox" name="chopped-fresh-parsley" id="chopped-fresh-parsley"><label for="chopped-fresh-parsley">4 tablespoons chopped fresh parsley</label></li>
+    <li><input type="checkbox" name="lasagna-noodles" id="lasagna-noodles"><label for="lasagna-noodles">12 lasagna noodles</label></li>
+    <li><input type="checkbox" name="ricotta-cheese" id="ricotta-cheese"><label for="ricotta-cheese">16 ounces ricotta cheese</label></li>
+    <li><input type="checkbox" name="egg" id="egg"><label for="egg">1 egg</label></li>
+    <li><input type="checkbox" name="mozzarella-cheese" id="mozzarella-cheese"><label for="mozzarella-cheese">3/4 pound mozzarella cheese, sliced</label></li>
+    <li><input type="checkbox" name="grated-parmesan-cheese" id="grated-parmesan-cheese"><label for="grated-parmesan-cheese">3/4 cup grated Parmesan cheese</label></li>
+    <li><input type="checkbox" name="crushed-garlic" id="crushed-garlic"><label for="crushed-garlic">2 cloves garlic, crushed</label></li>
+  </ul>
+  <input type="checkbox" name="show-more" id="show-more"><label for="show-more">Show <span class="more">more</span><span class="less">less</span></label>
+
+</body>
+</html>
