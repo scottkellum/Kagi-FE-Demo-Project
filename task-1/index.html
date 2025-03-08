@@ -59,6 +59,14 @@
     ul, li {
       margin: 0;
       padding: 0;
+      list-style: none;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: flex-start;
     }
 
     .checklist {
@@ -81,19 +89,53 @@
         text-decoration: none;
         gap: 0.8rem;
       }
-      li {
-        display: flex;
-        gap: 0.5rem;
-      }
       li:has(:checked) {
         opacity: 0.5;
         text-decoration: line-through;
       }
-      :has(#move:checked) & li:has(:checked) {
+
+      &:has(.show-more input:not(:checked)) li:nth-child(n + 11) {
+        display: none;
+      }
+
+      html:has(#move:checked) & li:has(:checked) {
         order: 1;
       }
-      :has(#hide:checked) & li:has(:checked) {
+      html:has(#hide:checked) & li:has(:checked) {
         display: none;
+      }
+
+      html:has(#move:checked) &,
+      html:has(#hide:checked) & {
+        /* Write logic for checked boxes here */
+      }
+
+      .show-more {
+        display: none;
+      }
+      &:has(li:nth-child(n + 11)) .show-more {
+        display: block;
+      }
+    }
+
+    .show-more {
+      text-align: center;
+      margin-block-start: 1rem;
+
+      input[type="checkbox"] {
+        display: none;
+      }
+      .more {
+        display: inline;
+      }
+      .less {
+        display: none;
+      }
+      :checked ~ .more {
+        display: none;
+      }
+      :checked ~ .less {
+        display: inline;
       }
     }
 
@@ -102,7 +144,6 @@
         display: flex;
         gap: 0.5rem;
         margin-bottom: 1rem;
-        list-style: none;
         font-size: 0.7rem;
       }
       li > label {
@@ -166,32 +207,58 @@
       </li>
     </ul>
   </nav>
+
+  <main>
+
+    <section class="checklist">
+      <h2>Meat Lasagna Recipe</h2>
+      <ul>
+        <li><label><input type="checkbox">1 pound sweet Italian sausage</label></li>
+        <li><label><input type="checkbox">3/4 pound lean ground beef</label></li>
+        <li><label><input type="checkbox">1/2 cup minced onion</label></li>
+        <li><label><input type="checkbox">2 cloves garlic, crushed</label></li>
+        <li><label><input type="checkbox">1 (28 ounce) can crushed tomatoes</label></li>
+        <li><label><input type="checkbox">2 (6 ounce) cans tomato paste</label></li>
+        <li><label><input type="checkbox">2 (6.5 ounce) cans canned tomato sauce</label></li>
+        <li><label><input type="checkbox">1/2 cup water</label></li>
+        <li><label><input type="checkbox">2 tablespoons white sugar</label></li>
+        <li><label><input type="checkbox">1 1/2 teaspoons dried basil leaves</label></li>
+      </ul>
+      <div class="show-more">
+        <label><input type="checkbox">Show <span class="more">more</span><span class="less">less</span></label>
+      </div>
+    </section>
   
-  <section class="checklist">
-    <h2>Meat Lasagna Recipe</h2>
-    <ul>
-      <li><input type="checkbox" name="pound-sweet-italian-sausage" id="pound-sweet-italian-sausage"><label for="pound-sweet-italian-sausage">1 pound sweet Italian sausage</label></li>
-      <li><input type="checkbox" name="pound-lean-ground-beef" id="pound-lean-ground-beef"><label for="pound-lean-ground-beef">3/4 pound lean ground beef</label></li>
-      <li><input type="checkbox" name="minced-onion" id="minced-onion"><label for="minced-onion">1/2 cup minced onion</label></li>
-      <li><input type="checkbox" name="crushed-garlic" id="crushed-garlic"><label for="crushed-garlic">2 cloves garlic, crushed</label></li>
-      <li><input type="checkbox" name="crushed-tomatoes" id="crushed-tomatoes"><label for="crushed-tomatoes">1 (28 ounce) can crushed tomatoes</label></li>
-      <li><input type="checkbox" name="tomato-paste" id="tomato-paste"><label for="tomato-paste">2 (6 ounce) cans tomato paste</label></li>
-      <li><input type="checkbox" name="canned-tomato-sauce" id="canned-tomato-sauce"><label for="canned-tomato-sauce">2 (6.5 ounce) cans canned tomato sauce</label></li>
-      <li><input type="checkbox" name="water" id="water"><label for="water">1/2 cup water</label></li>
-      <li><input type="checkbox" name="white-sugar" id="white-sugar"><label for="white-sugar">2 tablespoons white sugar</label></li>
-      <li><input type="checkbox" name="dried-basil-leaves" id="dried-basil-leaves"><label for="dried-basil-leaves">1 1/2 teaspoons dried basil leaves</label></li>
-      <li><input type="checkbox" name="fennel-seeds" id="fennel-seeds"><label for="fennel-seeds">1/2 teaspoon fennel seeds</label></li>
-      <li><input type="checkbox" name="italian-seasoning" id="italian-seasoning"><label for="italian-seasoning">1 teaspoon Italian seasoning</label></li>
-      <li><input type="checkbox" name="salt" id="salt"><label for="salt">11/2 teaspoons salt, divided, or to taste</label></li>
-      <li><input type="checkbox" name="ground-black-pepper" id="ground-black-pepper"><label for="ground-black-pepper">1/4 teaspoon ground black pepper</label></li>
-      <li><input type="checkbox" name="chopped-fresh-parsley" id="chopped-fresh-parsley"><label for="chopped-fresh-parsley">4 tablespoons chopped fresh parsley</label></li>
-      <li><input type="checkbox" name="lasagna-noodles" id="lasagna-noodles"><label for="lasagna-noodles">12 lasagna noodles</label></li>
-      <li><input type="checkbox" name="ricotta-cheese" id="ricotta-cheese"><label for="ricotta-cheese">16 ounces ricotta cheese</label></li>
-      <li><input type="checkbox" name="egg" id="egg"><label for="egg">1 egg</label></li>
-      <li><input type="checkbox" name="mozzarella-cheese" id="mozzarella-cheese"><label for="mozzarella-cheese">3/4 pound mozzarella cheese, sliced</label></li>
-      <li><input type="checkbox" name="grated-parmesan-cheese" id="grated-parmesan-cheese"><label for="grated-parmesan-cheese">3/4 cup grated Parmesan cheese</label></li>
-    </ul>
-    <input type="checkbox" name="show-more" id="show-more"><label for="show-more">Show <span class="more">more</span><span class="less">less</span></label>
-  </section>
+    <section class="checklist">
+      <h2>Meat Lasagna Recipe</h2>
+      <ul>
+        <li><label><input type="checkbox">1 pound sweet Italian sausage</label></li>
+        <li><label><input type="checkbox">3/4 pound lean ground beef</label></li>
+        <li><label><input type="checkbox">1/2 cup minced onion</label></li>
+        <li><label><input type="checkbox">2 cloves garlic, crushed</label></li>
+        <li><label><input type="checkbox">1 (28 ounce) can crushed tomatoes</label></li>
+        <li><label><input type="checkbox">2 (6 ounce) cans tomato paste</label></li>
+        <li><label><input type="checkbox">2 (6.5 ounce) cans canned tomato sauce</label></li>
+        <li><label><input type="checkbox">1/2 cup water</label></li>
+        <li><label><input type="checkbox">2 tablespoons white sugar</label></li>
+        <li><label><input type="checkbox">1 1/2 teaspoons dried basil leaves</label></li>
+        <li><label><input type="checkbox">1/2 teaspoon fennel seeds</label></li>
+        <li><label><input type="checkbox">1 teaspoon Italian seasoning</label></li>
+        <li><label><input type="checkbox">1 1/2 teaspoons salt, divided, or to taste</label></li>
+        <li><label><input type="checkbox">1/4 teaspoon ground black pepper</label></li>
+        <li><label><input type="checkbox">4 tablespoons chopped fresh parsley</label></li>
+        <li><label><input type="checkbox">12 lasagna noodles</label></li>
+        <li><label><input type="checkbox">16 ounces ricotta cheese</label></li>
+        <li><label><input type="checkbox">1 egg</label></li>
+        <li><label><input type="checkbox">3/4 pound mozzarella cheese, sliced</label></li>
+        <li><label><input type="checkbox">3/4 cup grated Parmesan cheese</label></li>
+      </ul>
+      <div class="show-more">
+        <label><input type="checkbox">Show <span class="more">more</span><span class="less">less</span></label>
+      </div>
+    </section>  
+
+  </main>
+  
 </body>
 </html>
