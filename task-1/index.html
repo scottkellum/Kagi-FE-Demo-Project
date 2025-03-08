@@ -6,6 +6,10 @@
   <title>Kagi Exercise 1</title>
   <style>
     html {
+      --background: #fff;
+      --background-alt: #f5f5f5;
+      --foreground: #000;
+      --foreground-alt: #000;
       --brand-color: #ffc85a;
 
       font-family: system-ui;
@@ -32,6 +36,33 @@
     :has(#hide:checked) li:has(:checked) {
       display: none;
     }
+
+    nav {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    radiogroup {
+      display: flex;
+      background-color: var(--background-alt);
+      width: max-content;
+      border-radius: 3rem;
+      padding: 2px;
+      border: 2px solid var(--foreground);
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    input[type="radio"] + label {
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3rem;
+      transition: background-color 0.2s ease-in-out;
+    }
+    input[type="radio"]:checked + label {
+      background-color: var(--brand-color);
+    }
   </style>
 </head>
 <body>
@@ -46,7 +77,7 @@
   
     <radiogroup>
       <input type="radio" name="style" id="perfect" value="perfect" checked><label for="perfect">Pixel-Perfect</label>
-      <input type="radio" name="style" id="fun" value="fun"><label for="fun">Fun</label>
+      <input type="radio" name="style" id="fun" value="fun"><label for="fun">Have Fun</label>
     </radiogroup>
   
     <!-- Add toggle to show, move, or hide completed items -->
