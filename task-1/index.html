@@ -69,6 +69,11 @@
       align-items: flex-start;
     }
 
+    :focus {
+      outline: 2px solid var(--foreground);
+      outline-offset: 2px;
+    }
+
     .checklist {
       /* background-image: url('pixel-perfect.png'); */
       background-size: 100%;
@@ -166,7 +171,6 @@
         cursor: pointer;
         padding: 0.25rem 0.5rem;
         border-radius: 3rem;
-        transition: background-color 0.2s ease-in-out;
       }
       input[type="radio"]:checked + label {
         background-color: var(--brand-color);
@@ -185,24 +189,19 @@
       <li>
         <label for="theme">Theme</label>
         <radiogroup>
-          <input type="radio" name="theme" id="auto" value="auto" checked><label for="auto">Auto</label>
-          <input type="radio" name="theme" id="light" value="light"><label for="light">Light</label>
-          <input type="radio" name="theme" id="dark" value="dark"><label for="dark">Dark</label>
-        </radiogroup>
-      </li>
-      <li>
-        <label for="style">Style</label>
-        <radiogroup>
-          <input type="radio" name="style" id="perfect" value="perfect" checked><label for="perfect">Pixel-Perfect</label>
-          <input type="radio" name="style" id="fun" value="fun"><label for="fun">Have Fun</label>
+          <!-- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role -->
+          <!-- Make these clickable -->
+          <input type="radio" name="theme" id="auto" value="auto" checked><label for="auto" tabindex="0" role="checkbox" aria-checked="true">Auto</label>
+          <input type="radio" name="theme" id="light" value="light"><label for="light" tabindex="0" role="checkbox" aria-checked="false">Light</label>
+          <input type="radio" name="theme" id="dark" value="dark"><label for="dark" tabindex="0" role="checkbox" aria-checked="false">Dark</label>
         </radiogroup>
       </li>
       <li>
         <label for="completed">Completed</label>
         <radiogroup>
-          <input type="radio" name="completed" id="show" value="show" checked><label for="show">Show</label>
-          <input type="radio" name="completed" id="move" value="move"><label for="move">Move</label>
-          <input type="radio" name="completed" id="hide" value="hide"><label for="hide">Hide</label>
+          <input type="radio" name="completed" id="show" value="show" checked><label for="show" tabindex="0">Show</label>
+          <input type="radio" name="completed" id="move" value="move"><label for="move" tabindex="0">Move</label>
+          <input type="radio" name="completed" id="hide" value="hide"><label for="hide" tabindex="0">Hide</label>
         </radiogroup>
       </li>
     </ul>
