@@ -66,5 +66,48 @@
 <body>
   <h1>Kagi Task 2</h1>
   <a href="/task-1/">Task 1</a>
+
+  <main>
+    <form action="">
+      <input type="text" name="name" id="name" placeholder="Your name">
+      <input type="number" name="judges" id="judges" value="3" min="1">
+      <input type="text" name="names" id="names" placeholder="Judge names">
+    </form>
+    <output id="output"></output>
+  </main>
+
+  <script>
+    document.querySelector('form').addEventListener('input', function(event) {
+      console.log(
+        court(
+          this.querySelector('#name').value,
+          this.querySelector('#judges').value,
+          this.querySelector('#names').value
+        )
+      );
+    });
+
+    function court(name, number, names) {
+
+      // 30 min per hearing
+      const time = 30;
+
+      // Aggregate and sort all of the names
+      let namesArr = names.split(' ');
+      namesArr.push(name);
+
+      // Sort and filter out empty strings, taking into account case-insensitivity
+      namesArr = namesArr.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())).filter(n => n);
+
+      const spot = namesArr.indexOf(name) + 1;
+      
+      if (name && namesArr.length > 1) {
+        return Math.ceil(spot / number) * time;
+      }
+      return null;
+
+      // 0.081ms in Chrome
+    }
+  </script>
 </body>
 </html>
