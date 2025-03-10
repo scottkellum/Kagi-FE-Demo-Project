@@ -1,0 +1,63 @@
+html {
+  --cream: #F2F0E7;
+  --orange: #FD6820;
+  --sky: #9DEBFE;
+  --grass: #60AA55;
+  --graphite: #191919;
+  --graphite-light: #454545;
+  --purple: #4835BC;
+  --yellow: #FFB319;
+  --eggshell: #E5E5E5;
+  --cream-lighter: #F7F6F2;
+
+
+  --background: var(--cream-lighter);
+  --background-alt: var(--cream);
+  --foreground: var(--graphite);
+  --brand-color: var(--yellow);
+  --border: var(--graphite-light);
+  --action: var(--purple);
+
+  font-family: system-ui;
+  font-size: calc(20 / 16 * 100%);
+
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --background: var(--graphite);
+    --background-alt: var(--graphite-light);
+    --foreground: var(--cream-lighter);
+    --foreground-alt: var(--cream);
+    --brand-color: var(--yellow);
+    --border: var(--eggshell);
+    --action: var(--yellow);
+  }
+}
+html:has(#dark:checked) {
+  --background: var(--graphite);
+  --background-alt: var(--graphite-light);
+  --foreground: var(--cream-lighter);
+  --foreground-alt: var(--cream);
+  --brand-color: var(--yellow);
+  --border: var(--eggshell);
+  --action: var(--yellow);
+}
+html:has(#light:checked) {
+  --background: var(--cream-lighter);
+  --background-alt: var(--cream);
+  --foreground: var(--graphite);
+  --brand-color: var(--yellow);
+  --border: var(--graphite-light);
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+}
+
+a {
+  color: var(--action);
+}
