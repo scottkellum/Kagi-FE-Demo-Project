@@ -88,26 +88,23 @@
     });
 
     function court(name, number, names) {
-
-      // 30 min per hearing
-      const time = 30;
+      if (!name || !names) return null;
 
       // Aggregate and sort all of the names
-      let namesArr = names.split(' ');
+      let namesArr = names.split(' ').filter(Boolean);
       namesArr.push(name);
 
       // Sort and filter out empty strings, taking into account case-insensitivity
-      namesArr = namesArr.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())).filter(n => n);
+      namesArr.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
 
       const spot = namesArr.indexOf(name) + 1;
-      
-      if (name && namesArr.length > 1) {
-        return Math.ceil(spot / number) * time;
-      }
-      return null;
 
-      // Roughly 0.08ms in Chrome for this function call
+      return Math.ceil(spot / number) * 30;
     }
-  </script>
+
+    // Roughly 0.08ms in Chrome for this function call on initial pass
+    // Roughly Added .filter(Boolean) to remove empty strings amd changed sort method to localeCompare.
+    // Very maginal performance improvements, still tracking at roughly 0.08ms in Chrome.
+</script>
 </body>
 </html>
