@@ -12,7 +12,7 @@ html {
 
 
   --background: var(--cream-lighter);
-  --background-alt: var(--cream);
+  --background-alt: #fff;
   --foreground: var(--graphite);
   --brand-color: var(--yellow);
   --border: var(--graphite-light);
@@ -28,7 +28,7 @@ html {
 @media (prefers-color-scheme: dark) {
   html {
     --background: var(--graphite);
-    --background-alt: var(--graphite-light);
+    --background-alt: #000;
     --foreground: var(--cream-lighter);
     --foreground-alt: var(--cream);
     --brand-color: var(--yellow);
@@ -38,7 +38,7 @@ html {
 }
 html:has(#dark:checked) {
   --background: var(--graphite);
-  --background-alt: var(--graphite-light);
+  --background-alt: #000;
   --foreground: var(--cream-lighter);
   --foreground-alt: var(--cream);
   --brand-color: var(--yellow);
@@ -47,7 +47,7 @@ html:has(#dark:checked) {
 }
 html:has(#light:checked) {
   --background: var(--cream-lighter);
-  --background-alt: var(--cream);
+  --background-alt: #fff;
   --foreground: var(--graphite);
   --brand-color: var(--yellow);
   --border: var(--graphite-light);
