@@ -51,6 +51,7 @@ html:has(#light:checked) {
   --foreground: var(--graphite);
   --brand-color: var(--yellow);
   --border: var(--graphite-light);
+  --action: var(--purple);
 }
 
 body {
@@ -60,4 +61,37 @@ body {
 
 a {
   color: var(--action);
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-block-end: 2px solid var(--border);
+  margin-block-end: 2rem;
+  padding-block-end: 1rem;
+}
+
+.top-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+.top-nav a {
+  text-decoration: none;
+}
+.top-nav a:hover {
+  text-decoration: underline;
+}
+
+.top-nav h1,
+.top-nav p,
+.top-nav ul,
+.top-nav li {
+  margin: 0;
+}
+
+.top-nav h1 {
+  font-size: 2rem;
+  margin-block-end: 1rem;
 }
