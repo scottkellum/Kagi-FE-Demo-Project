@@ -3,73 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kagi demo projects</title>
-  <style>
-  html {
-    --background: #fff;
-    --background-alt: #f5f5f5;
-    --foreground: #000;
-    --foreground-alt: #000;
-    --brand-color: #ffc85a;
-    --border: #ccc;
-
-    font-family: system-ui;
-    font-size: calc(20 / 16 * 100%);
-
-    background-color: var(--background);
-    color: var(--foreground);
-  }
-  @media (prefers-color-scheme: dark) {
-    html {
-      --background: #000;
-      --background-alt: #3b2803;
-      --foreground: #fff;
-      --foreground-alt: #fff;
-      --brand-color: #e29700;
-      --border: #888;
-    }
-  }
-  html:has(#dark:checked) {
-    --background: #000;
-    --background-alt: #3b2803;
-    --foreground: #fff;
-    --foreground-alt: #fff;
-    --brand-color: #e29700;
-    --border: #888;
-  }
-  html:has(#light:checked) {
-    --background: #fff;
-    --background-alt: #f5f5f5;
-    --foreground: #000;
-    --foreground-alt: #000;
-    --brand-color: #ffc85a;
-  }
-
-  body {
-    margin: 0;
-    padding: 1rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-    margin-block: 0 0.5rem;
-    margin-inline: 0;
-  }
-
-  ul, li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  </style>
+  <title>Kagi Tasks by Scott Kellum</title>
+  <link rel="stylesheet" href="../lib/theme.css">
 </head>
 <body>
-  <h1>Kagi demo projects</h1>
-  <nav>
+  <nav class="top-nav">
+    <div class="hgroup">
+      <h1>Kagi Tasks by Scott Kellum</h1>
+      <p>by Scott Kellum</p>
+    </div>
     <ul>
-      <li><a href="/task-1/">Task 1</a></li>
-      <li><a href="/task-2/">Task 2</a></li>
+      <li>
+        <a href="/task-1/">Task 1</a>
+      </li>
+      <li>
+        <a href="/task-2/">Task 2</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://scottkellum.com/resume">Résumé</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://scottkellum.com/portfolio">Portfolio</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://github.com/scottkellum">Github</a>
+      </li>
     </ul>
   </nav>
+  <main>
+    <article>
+      <p>Thank you for the opportunity to complete <a href="https://hackmd.io/pujnQcd4RRScInlYChR0_g" target="_blank">these code tasks</a>. I enjoyed working through the problems and look forward to discussing these in more detail soon.</p>
+
+      <p>Warmly,<br><a href="https://scottkellum.com" target="_blank">Scott Kellum</a></p>
+    </article>
+  </main>
 </body>
 </html>
