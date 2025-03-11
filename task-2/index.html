@@ -6,48 +6,126 @@
   <title>Kagi Task 1</title>
   <link rel="stylesheet" href="../lib/theme.css">
   <style>
-  body {
-    margin: 0;
-    padding: 1rem;
-  }
+    input {
+      background-color: var(--background-alt);
+      font: inherit;
+      border: 2px solid var(--border);
+      color: currentColor;
+      border-radius: 0.3rem;
+      border-color: var(--border);
+      padding: 0.5rem;
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    input:focus {
+      border-color: var(--brand-color);
+      outline: none;
+    }
 
-  h1 {
-    font-size: 2rem;
-    margin-block: 0 0.5rem;
-    margin-inline: 0;
-  }
+    form {
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+    }
 
-  ul, li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-</style>
+    section {
+      text-align: center;
+    }
+
+    output {
+      display: inline;
+      font-size: 40vw;
+      font-weight: bold;
+      line-height: 1;
+      margin: 0;
+      letter-spacing: -0.05em;
+    }
+    .output span {
+      font-size: max(4vw, 1rem);
+    }
+
+    .output, .speed {
+      border-top: 2px solid var(--border);
+      margin-block: 1rem;
+      padding-block: 1rem;
+      label {
+        display: block;;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Kagi Task 2</h1>
-  <a href="/task-1/">Task 1</a>
+  <nav class="top-nav">
+    <div class="hgroup">
+      <h1>Kagi Task 1</h1>
+      <p>by Scott Kellum</p>
+    </div>
+    <ul>
+      <li>
+        <a href="/task-1/">Task 1</a>
+      </li>
+      <li>
+        <a href="/task-2/">Task 2</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://scottkellum.com/resume">Résumé</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://scottkellum.com/portfolio">Portfolio</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://github.com/scottkellum">Github</a>
+      </li>
+    </ul>
+  </nav>
 
   <main>
-    <form action="">
-      <input type="text" name="name" id="name" placeholder="Your name">
-      <input type="number" name="judges" id="judges" value="3" min="1">
-      <input type="text" name="names" id="names" placeholder="Waiting room names">
-    </form>
-    <output id="output"></output>
-  </main>
+
+    <nav class="page-nav">
+      <ul>
+        <li>
+          <label for="theme">Theme</label>
+          <radiogroup>
+            <input type="radio" name="theme" id="auto" value="auto" checked><label for="auto">Auto</label>
+            <input type="radio" name="theme" id="light" value="light"><label for="light">Light</label>
+            <input type="radio" name="theme" id="dark" value="dark"><label for="dark">Dark</label>
+          </radiogroup>
+        </li>
+      </ul>
+    </nav>
+    
+      <form action="">
+        <label for="name">Your name</label>
+        <input type="text" name="name" id="name" value="Jules" placeholder="Name">
+        <label for="judges">Number of judges</label>
+        <input type="number" name="judges" id="judges" value="3" min="1" placeholder="Number of judges">
+        <label for="names">Waiting room names</label>
+        <input type="text" name="names" id="names" value="Adam Betty Frank Mike" placeholder="Names in waiting room">
+      </form>
+      <section class="output">
+        <label for="output">Estimated time your appointment will be over</label>
+        <output id="output">60</output><span>min</span>
+      </section>
+      <section class="speed">
+        <label for="routineSpeed">Routine speed</label>
+        <output id="routineSpeed">-</output><span>ms</span>
+      </section>
+    </main>
 
   <script>
     document.querySelector('form').addEventListener('input', function(event) {
-      console.time();
-      console.log(
-        court(
-          this.querySelector('#name').value,
-          this.querySelector('#judges').value,
-          this.querySelector('#names').value
-        )
+      const t1 = performance.now();
+      const result = court(
+        this.querySelector('#name').value,
+        this.querySelector('#judges').value,
+        this.querySelector('#names').value
       );
-      console.timeEnd()
+      const t2 = performance.now();
+      document.querySelector('#output').textContent = result;
+
+      document.querySelector('#routineSpeed').textContent = Math.round((t2 - t1) * 10000) / 10000;
+
     });
 
     function court(name, number, names) {

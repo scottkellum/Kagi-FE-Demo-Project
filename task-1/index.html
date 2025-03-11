@@ -12,12 +12,6 @@
       margin-inline: 0;
     }
 
-    ul, li {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
     main {
       display: flex;
       flex-wrap: wrap;
@@ -112,45 +106,6 @@
       }
     }
 
-    .page-nav {
-      ul {
-        display: flex;
-        gap: 0.5rem;
-        margin-bottom: 1rem;
-        font-size: 0.7rem;
-      }
-      li > label {
-        display: block;
-        margin-block-end: 0.25rem;
-      }
-      radiogroup {
-        height: min-content;
-        display: flex;
-        background-color: var(--background-alt);
-        width: max-content;
-        border-radius: 3rem;
-        padding: 2px;
-        border: 2px solid var(--border);
-      }
-      radiogroup:has(:focus) {
-        border-color: var(--brand-color);
-      }
-      input[type="radio"] {
-        z-index: -1;
-        opacity: 0;
-        position: absolute;
-      }
-      input[type="radio"] + label {
-        cursor: pointer;
-        padding: 0.25rem 0.5rem;
-        border-radius: 3rem;
-      }
-      input[type="radio"]:checked + label {
-        background-color: var(--brand-color);
-        color: #000;
-      }
-    }
-
     .checkbox {
       cursor: pointer;
       fill: none;
@@ -207,13 +162,10 @@
   </nav>
 
    <nav class="page-nav">
-
     <ul>
       <li>
         <label for="theme">Theme</label>
         <radiogroup>
-          <!-- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role -->
-          <!-- Make these clickable -->
           <input type="radio" name="theme" id="auto" value="auto" checked><label for="auto">Auto</label>
           <input type="radio" name="theme" id="light" value="light"><label for="light">Light</label>
           <input type="radio" name="theme" id="dark" value="dark"><label for="dark">Dark</label>
