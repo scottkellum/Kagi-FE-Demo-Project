@@ -14,15 +14,15 @@ Thank you for participating. Good luck and have fun!
 
 ![Recipe Widget](./lib/image.png)
 
-- [ ] Make a recipe widget as shown in the image.
-- [ ] Clicking Show more' should expand the content of the widget.
-- [ ] The text should change to 'Show less.
-- [ ] Clicking Show Less should collapse the content.
-- [ ] 'Show more' should only be visible if Ingredients exceed 10.
-- [ ] There is no need to add, edit, or delete Ingredients for this widget, the idea is to make
-- [ ] Show more/Show less' functionality WITHOUT javascript.
-- [ ] Make 2 examples, one with checkboxes like shown in the image. Another with just a text, for the second example, there should be 15 lines (or more) of text, 10 lines of text should be visible when collapsed and when expanded another 5 should show up.
-- [ ] No JavaScript at all for this one.
+- [x] Make a recipe widget as shown in the image.
+- [x] Clicking Show more' should expand the content of the widget.
+- [x] The text should change to 'Show less.
+- [x] Clicking Show Less should collapse the content.
+- [x] 'Show more' should only be visible if Ingredients exceed 10.
+- [x] There is no need to add, edit, or delete Ingredients for this widget, the idea is to make
+- [x] Show more/Show less' functionality WITHOUT javascript.
+- [x] Make 2 examples, one with checkboxes like shown in the image. Another with just a text, for the second example, there should be 15 lines (or more) of text, 10 lines of text should be visible when collapsed and when expanded another 5 should show up.
+- [x] No JavaScript at all for this one.
 
 ## Task 2 - JavaScript optimization
 
